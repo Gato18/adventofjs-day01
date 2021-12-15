@@ -1,0 +1,124 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap");
+
+*,
+::before,
+::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+@font-face {
+  font-family: "Bebas";
+  src: local("Bebas"), url(./fonts/bebasneue-book-webfont.woff2) format("woff2"), url(./fonts/bebasneue-book-webfont.woff) format("woff");
+}
+
+.timer-container {
+  position: relative;
+  width: 1240px;
+  height: 640px;
+  background: #2b2a30;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.timer {
+  display: block;
+  position: relative;
+  background: radial-gradient(71.4% 71.4% at 51.7% 28.6%, #3a393f 0%, #17171a 100%);
+  box-shadow: inset 0px 0px 114px rgba(0, 0, 0, 0.45);
+  width: 518px;
+  height: 518px;
+  border-radius: 50%;
+}
+
+.timer::before,
+.timer::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  border: 7px solid transparent;
+  transform: rotate(-45deg);
+}
+
+.timer::before {
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border-top-color: #900a0a;
+  border-left-color: #900a0a;
+  border-right-color: #900a0a;
+  box-shadow: -5px 14px 44px #000000, 5px -16px 50px rgba(255, 255, 255, 0.15);
+}
+
+.timer::before {
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border-bottom-color: #000000;
+}
+
+.chrono {
+  position: absolute;
+  top: 48%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 12em;
+  font-family: "Bebas", cursive;
+  color: #fff;
+}
+
+.start {
+  position: absolute;
+  top: 75%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1em;
+  font-family: "Montserrat", sans-serif;
+  letter-spacing: 1em;
+  color: #fff;
+}
+
+.start::after {
+  content: "START";
+}
+
+.params {
+  position: absolute;
+  top: 85%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 32px;
+  height: 32px;
+  background-color: #585858;
+  -webkit-mask-image: url("./images/gear.svg");
+  mask-image: url("./images/gear.svg");
+}
+
+.edit::before {
+  border-top-color: #09a65a;
+  border-left-color: #09a65a;
+  border-right-color: #09a65a;
+}
+
+.edit .params {
+  -webkit-mask-image: url("./images/check.svg");
+  mask-image: url("./images/check.svg");
+}
+
+.edit .doted {
+  text-decoration: underline dotted;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 1.5rem;
+}
+
+.edit .start::after {
+  content: "";
+}
+
+.count::after {
+  content: "STOP";
+}
