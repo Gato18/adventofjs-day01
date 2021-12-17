@@ -11,16 +11,16 @@ function App() {
   const [counter, setCounter] = useState(1);
   const [countDown, setCountDown] = useState(false);
   const [start, setStart] = useState("START");
-  const [end, setEnd] = useState(false);
+  const [end] = useState(false);
   const [initialCount, setInitialCount] = useState(0);
   const [dashOffset, setDashOffset] = useState(2 * 259 * Math.PI);
 
   useEffect(() => {
     second < 10 ? setSecond(("0" + second).slice(-2)) : setSecond(second);
-    if (minute === 0 && second === 0) {
-      setEnd(true);
-      alert("end");
-    }
+    // if (minute === 0 && second === 0) {
+    //   setEnd(true);
+    //   alert("end");
+    // }
   }, [second, minute]);
 
   useEffect(() => {
@@ -36,7 +36,7 @@ function App() {
       setDashOffset((2 * 259 * Math.PI) / (initialCount / counter));
       return () => clearInterval(timer);
     }
-  }, [counter, countDown]);
+  }, [counter, countDown, initialCount]);
 
   //On édite les minutes
   let handleChangeMin = (min) => {
